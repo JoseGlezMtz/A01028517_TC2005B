@@ -1,17 +1,23 @@
 "use strict"
 
 
-let palabra="paraNgariCutiriMicuaRo"
+let frase="hola mundo"
+let frase_2="saquenme de latinoamerica"
+let frase_3="comida rapida"
 
-function BuscarMayuscula(string){
-    let Letra=""
-    for (let i=0;i<string.length;i++){
-        if (string[i]===string[i].toUpperCase()){
-            Letra=string[i]
-            break
+function convertir_mayusculas(string){
+    string=string[0].toUpperCase()+string.substring(1)
+    for (let i=0; i<string.length; i++){
+        if (string[i]==" "){
+            string=string.substring(0,i+1)+string[i+1].toUpperCase()+string.substring(i+2)
         }
     }
-    return Letra
+    return string
+
 }
 
-console.log(`La mayuscula de ${palabra} es ${BuscarMayuscula(palabra)}`)
+
+
+console.log(convertir_mayusculas(frase))
+console.log(convertir_mayusculas(frase_2))
+console.log(convertir_mayusculas(frase_3))
