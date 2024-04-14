@@ -1,5 +1,5 @@
 "use strict";
-let array="abacddbec"
+
 
 function diferente(array){
     let no_repetido=""
@@ -17,4 +17,6 @@ function diferente(array){
     }
 return no_repetido
 }
-console.log(`La letra que no se repite es ${diferente(array)}`)
+console.log(`La letra que no se repite es ${diferente("abacddbec")}`)
+console.log(`La letra que no se repite es ${diferente("abcdeabcd")}`)
+console.log(`La letra que no se repite es ${diferente("bbccddeea")}`)

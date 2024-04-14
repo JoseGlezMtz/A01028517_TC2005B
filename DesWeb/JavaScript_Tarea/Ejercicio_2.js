@@ -1,9 +1,6 @@
 
 "use strict";
 
-let arreglo=[2,6,8,4,5,9,1,3,7]
-
-
 
 function BubbleSort(array){
     for (let i=array.length;i>=0;i--){
@@ -23,5 +20,7 @@ function BubbleSort(array){
     return array
 }   
 
-console.log(BubbleSort(arreglo)) 
+console.log(BubbleSort([2,6,8,4,5,9,1,3,7])) 
+console.log(BubbleSort([5,6,7,8,9,4,3,2,1]))
+console.log(BubbleSort([1,2,3,10,5,8,7,6]))
 
