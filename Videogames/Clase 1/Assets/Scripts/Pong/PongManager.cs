@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PongManager : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class PongManager : MonoBehaviour
 [SerializeField] float speed;
 
 [SerializeField] GameObject ballPrefab;
+
+[SerializeField] TMP_Text scoreP1;
+[SerializeField] TMP_Text scoreP2;
 
 public int PointsPlayer1;
 public int PointsPlayer2;
@@ -21,11 +25,18 @@ public int PointsPlayer2;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && ball!=null){
-            Destroy(ball);
-            InitGame();
+        if (Input.GetKeyDown(KeyCode.R) ){
+            Reset();
         }
     }
+
+    public void Reset(){
+        if (ball!=null){
+        Destroy(ball);
+        InitGame();}
+
+    }
+
     void InitGame(){
         StartCoroutine(ServeBall());
     }
@@ -39,14 +50,19 @@ public int PointsPlayer2;
     public void Score(string player){
         if(player=="Player1"){
             PointsPlayer1++;
+            scoreP1.text=PointsPlayer1.ToString();
             InitGame();
         }
         else if (player=="Player2"){
             PointsPlayer2++;
+            scoreP2.text=PointsPlayer2.ToString();
             InitGame();
         }
         
     }
+    public void Goto(string name){
+        UnityEngine.SceneManagement.SceneManager.LoadScene(name);
+}
 }
 
 
