@@ -20,7 +20,7 @@ public class SimonController : MonoBehaviour
     [SerializeField] int level=1;
     [SerializeField] bool playerTurn = false;
     [SerializeField] int counter = 0;
-    [SerializeField] int numButtons;
+    [SerializeField] int numButtons=6;
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] Transform buttonParent;
     [SerializeField] TextMeshProUGUI textMesh;
@@ -65,11 +65,15 @@ public class SimonController : MonoBehaviour
                     playerTurn = false;
                     level++;
                     counter = 0;
-                    if(mult!=0.1){
+                    if(mult!=0.1 && level%2==0){
                         mult-=0.1f;
                     }
                     textlevel.text = "Level: "+ level.ToString() ;
                     textMesh.text = "PC turn!";
+                    if(level%5==0){
+                        numButtons++;
+                        Create_Button();
+                    }
                     AddToSequence();
                 }
             } else {
@@ -110,12 +114,26 @@ public class SimonController : MonoBehaviour
     // Restart the game
     public void RestartGame()
     {
+        foreach (SimonButton button in buttons) {
+            Destroy(button.gameObject);
+        }
         sequence.Clear();
+        buttons.Clear();    
         level = 1;
         counter = 0;
+        numButtons=6;
         playerTurn = false;
         textMesh.text = "PC turn!";
         textlevel.text = "Level: "+ level.ToString() ;
-        AddToSequence();
+        PrepareButtons();
+    }
+
+    public void Create_Button(){
+            GameObject newButton = Instantiate(buttonPrefab, buttonParent);
+            newButton.GetComponent<Image>().color = Color.HSVToRGB((float)(numButtons-1)/numButtons, 1, 1);
+            newButton.GetComponent<SimonButton>().init(numButtons-1);
+            buttons.Add(newButton.GetComponent<SimonButton>());
+            buttons[numButtons-1].gameObject.GetComponent<Button>().onClick.AddListener(() => ButtonPressed(numButtons-1));
+
     }
 }
