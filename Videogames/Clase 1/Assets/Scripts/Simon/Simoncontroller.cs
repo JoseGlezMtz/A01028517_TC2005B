@@ -10,19 +10,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SimonController : MonoBehaviour
 {
     [SerializeField] List<SimonButton> buttons;
     [SerializeField] List<int> sequence;
     [SerializeField] float delay;
-    [SerializeField] int level;
+    [SerializeField] int level=1;
     [SerializeField] bool playerTurn = false;
-
     [SerializeField] int counter = 0;
     [SerializeField] int numButtons;
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] Transform buttonParent;
+    [SerializeField] TextMeshProUGUI textMesh;
+    [SerializeField] TextMeshProUGUI textlevel;
+    //Se le añade un multiplicador para ir aumentando la velocidad
+    public float mult=1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -59,10 +63,16 @@ public class SimonController : MonoBehaviour
                     playerTurn = false;
                     level++;
                     counter = 0;
+                    if(mult!=0.1){
+                        mult-=0.1f;
+                    }
+                    textlevel.text = "Level: "+ level.ToString() ;
+                    textMesh.text = "PC turn!";
                     AddToSequence();
                 }
             } else {
                 Debug.Log("Game Over!");
+                textMesh.text = "Game Over!";
             }
         }
     }
@@ -82,9 +92,11 @@ public class SimonController : MonoBehaviour
         yield return new WaitForSeconds(delay);
         foreach (int index in sequence) {
             buttons[index].Highlight();
-            yield return new WaitForSeconds(delay);
+            yield return new WaitForSeconds(delay*mult);
+            //aqui se hace referencia al multiplicador para que el tiempo de espera sea menor solo al momento de mostrar la secuencia
         }
         // Switch the turn over to the player
         playerTurn = true;
+        textMesh.text = "Your Turn!";
     }
 }

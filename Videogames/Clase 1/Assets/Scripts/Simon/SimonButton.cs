@@ -8,6 +8,9 @@ public class SimonButton : MonoBehaviour
     Color originalColor;
     public float delay;
     AudioSource audio;
+    
+    
+    
 
     // Start is called before the first frame update
     public void init(int index)
@@ -27,7 +30,7 @@ public class SimonButton : MonoBehaviour
     IEnumerator ChangeColor()
     {
         GetComponent<Image>().color=Color.white;
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(0.1f);
         GetComponent<Image>().color=originalColor;
     }
 }

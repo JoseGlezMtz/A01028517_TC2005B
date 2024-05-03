@@ -687,6 +687,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1024497598}
     m_Modifications:
+    - target: {fileID: 367321618279882265, guid: 02d8dcc00e0e96b4e808c63421e634ac, type: 3}
+      propertyPath: m_text
+      value: Simon
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490895752098596649, guid: 02d8dcc00e0e96b4e808c63421e634ac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490895752098596649, guid: 02d8dcc00e0e96b4e808c63421e634ac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 737975542}
+    - target: {fileID: 1490895752098596649, guid: 02d8dcc00e0e96b4e808c63421e634ac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Goto
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490895752098596649, guid: 02d8dcc00e0e96b4e808c63421e634ac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneChanger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1490895752098596649, guid: 02d8dcc00e0e96b4e808c63421e634ac, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Simon
+      objectReference: {fileID: 0}
     - target: {fileID: 5154950065121617706, guid: 02d8dcc00e0e96b4e808c63421e634ac, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
