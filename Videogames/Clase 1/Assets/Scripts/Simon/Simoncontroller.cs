@@ -83,6 +83,7 @@ public class SimonController : MonoBehaviour
                     textMesh.text = "New Max Level!";
                     maxlevel.text = "Max Level: "+ level.ToString();
                     Max_level=level;
+                    playerTurn = false;
                 }
             }
         }
