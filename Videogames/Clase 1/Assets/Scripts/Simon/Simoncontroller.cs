@@ -27,6 +27,8 @@ public class SimonController : MonoBehaviour
     [SerializeField] TextMeshProUGUI textlevel;
     //Se le añade un multiplicador para ir aumentando la velocidad
     public float mult=1.0f;
+    public int Max_level=0;
+    [SerializeField] TextMeshProUGUI maxlevel;
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +75,11 @@ public class SimonController : MonoBehaviour
             } else {
                 Debug.Log("Game Over!");
                 textMesh.text = "Game Over!";
+                if(level>Max_level){
+                    textMesh.text = "New Max Level!";
+                    maxlevel.text = "Max Level: "+ level.ToString();
+                    Max_level=level;
+                }
             }
         }
     }
@@ -98,5 +105,17 @@ public class SimonController : MonoBehaviour
         // Switch the turn over to the player
         playerTurn = true;
         textMesh.text = "Your Turn!";
+    }
+
+    // Restart the game
+    public void RestartGame()
+    {
+        sequence.Clear();
+        level = 1;
+        counter = 0;
+        playerTurn = false;
+        textMesh.text = "PC turn!";
+        textlevel.text = "Level: "+ level.ToString() ;
+        AddToSequence();
     }
 }
