@@ -30,16 +30,41 @@ public class SimonController : MonoBehaviour
     public int Max_level=0;
     [SerializeField] TextMeshProUGUI maxlevel;
 
+    public string APIData= @"
+    {
+        ""buttons"":[
+            {
+                ""ID"":0,
+                ""r"":1.0,
+                ""g"":0.0,
+                ""b"":0.5
+            }
+        ]
+    }";
+
+    [SerializeField] ColorButtons allButtons;
     // Start is called before the first frame update
     void Start()
     {
         // Configure the buttons to be used in the game
-        PrepareButtons();
+        //PrepareButtons();
+        GetComponent<APIconection>().getData();
     }
 
     // Configure the callback functions for the buttons
-    void PrepareButtons()
+    public void PrepareButtons()
     {
+        allButtons = JsonUtility.FromJson<ColorButtons>(APIData);
+        foreach (ColorButton button in allButtons.buttons) {
+            GameObject newButton = Instantiate(buttonPrefab, buttonParent);
+            newButton.GetComponent<Image>().color = new Color(button.r, button.g, button.b);
+            newButton.GetComponent<SimonButton>().init(button.ID);
+            newButton.GetComponent<Button>().onClick.AddListener(() => ButtonPressed(button.ID));
+            buttons.Add(newButton.GetComponent<SimonButton>());
+            Debug.Log(button.ID);
+        }
+        AddToSequence();
+        /*
         for (int i=0; i<numButtons; i++) {
             int index = i;
             GameObject newButton = Instantiate(buttonPrefab, buttonParent);
@@ -49,7 +74,7 @@ public class SimonController : MonoBehaviour
             buttons[i].gameObject.GetComponent<Button>().onClick.AddListener(() => ButtonPressed(index));
         }
         // Start the game by adding the first button
-        AddToSequence();
+        AddToSequence();*/
     }
 
     // Main function to validate that the button pressed by the user 
