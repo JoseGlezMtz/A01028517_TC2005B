@@ -1,0 +1,163 @@
+html{
+    background-color: #fdf2c5;
+}
+
+body {
+    font-family: 'comci_sansregular', sans-serif;
+    margin: 20px;
+
+}
+h1{
+    color: #82bfa0;
+}
+
+.property {
+    margin-bottom: 30px;
+}
+
+.property h2 {
+    color: #7a6f5d;
+}
+
+.ejemplo {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #efe8b2;
+}
+.borde{
+    border: 2px solid #000;
+    
+}
+
+.bordes_lados {
+    border-left: 5px solid red;
+    border-right: 5px solid blue;
+    border-top: 5px solid green;
+    border-bottom: 5px solid yellow;
+}
+
+
+.border-radius {
+    border: 2px solid #000;
+    border-radius: 10px;
+}
+
+
+.background-image {
+    background-image: url('../Image/arreglemos-esto-con-dialogo.jpg');
+    background-size: cover;
+    height: 150px;
+    width: 150px;
+}
+
+/* color */
+ #azul{
+    color: rgb(13, 0, 255);
+}
+
+ #verde{
+    color: rgb(9, 121, 35);
+}
+
+/* font */
+.font {
+    font: italic bold 20px 'Arial', sans-serif;
+}
+
+/* font-family */
+.font-family {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* font-style, font-weight */
+.font-style-weight-italic {
+    font-style: italic;
+    /*font-weight: bold;*/
+}
+.font-style-weight-bold {
+    
+    font-weight: bold;
+}
+
+/* width, height */
+.width-height {
+    width: 200px;
+    height: 100px;
+    
+}
+
+/* list-style */
+.list-style {
+    list-style: square inside;
+}
+
+/* margin */
+.margin1 {
+    margin: 20px;
+}
+
+.margin2 {
+    margin: 40px;
+    
+}
+
+/* padding */
+.padding {
+    padding: 20px;
+    
+}
+
+.padding2 {
+    padding: 40px;
+    
+}
+
+/* overflow */
+.overflow {
+    width: 100px;
+    height: 100px;
+    overflow: auto;
+}
+.overflow::before {
+    content: "Texto que no cabe en el recuadro, bueno ya puedes dejar de leer...";
+    display: block;
+}
+
+/* display */
+.display1 {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border:2px solid #000;
+
+    
+}
+
+.display2 {
+    display: inline;
+    width: 100px;
+    height: 100px;
+    border:2px solid #000
+    
+}
+
+/* position */
+.position1 {
+    position: relative;
+    top: 10px;
+    left: 10px;
+    padding: 20px;
+}
+.position2 {
+    position: absolute;
+    top: 3070px;
+    left: 40px;
+    
+}
+
+/* filter */
+.filter {
+    filter: blur(3px);
+    width: 150px;
+    height: 150px;
+}
